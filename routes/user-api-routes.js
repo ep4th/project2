@@ -37,5 +37,16 @@ module.exports = function(app) {
       res.json(dbAuthor);
     });
   });
+  app.put("/api/user", function(req, res) {
+    db.User.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 
 };

@@ -1,5 +1,5 @@
-module.exports = function (sequelize, DataTypes) {
-  var event = sequelize.define("event", {
+module.exports = function(sequelize, DataTypes) {
+  var Event = sequelize.define("Event", {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -23,14 +23,13 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-
-  event.associate = function (models) {
-    event.belongsTo(models.user, {
+  Event.associate = function(models) {
+    Event.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return event;
+  return Event;
 };
