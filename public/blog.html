@@ -13,9 +13,9 @@
         <div id="header">
             <li id="sitename"><a href="#">&lt;CodeBook/&gt;</CodeBook></a></li>
             <form action="post">
-                <li>Email<br><input type="text" name="email"></li>
-                <li>Password<br><input type="password" name="password"></li>
-                <li><input type="submit" name="login" value="Log In"></li>
+                <li>Email<br><input type="text" id="emailLogin" name="email"></li>
+                <li>Password<br><input type="password" id="passwordLogin" name="password"></li>
+                <li><input type="submit" name="login" id="loginSubmit" value="Log In"></li>
             </form>
         </div>
     </div>
@@ -38,11 +38,16 @@
                         <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
                     </div> 
                     <div class="form-group">
-                        <small id="languageHelp" class="text-muted">List of known languages</small>
-                        <input type="language" name="language" id="language" class="form-control input-lg" placeholder="JS, Ruby, Python, SASS, etc..">
+                        <small id="languageHelp">List of known languages</small>
+                        <hr>
+                        <label class="checkbox-inline"><input type="checkbox" value="JS"> JS</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="C#"> C#</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="SASS"> SASS</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="PHP"> PHP</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Python"> Python</label>
                     </div>
                     <div>
-                        <li><input id="submit" type="submit" name="login" value="Submit"></li>
+                        <li id="submitLi"><input id="submit" type="submit" name="login" value="Submit"></li>
                     </div>
                 </fieldset>
             </form>

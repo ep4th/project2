@@ -1,23 +1,62 @@
 $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and author select
-  var bodyInput = $("#body");
-  var titleInput = $("#title");
-  var cmsForm = $("#cms");
-  var authorSelect = $("#author");
+  // var bodyInput = $("#body");
+  // var titleInput = $("#title");
+  // var cmsForm = $("#cms");
+  // var authorSelect = $("#author");
+  var emailLogin = $("#emailLogin").value;
+  var passwordLogin = $("#passwordLogin").value;
+  var name = $("#name").value;
+  var email = $("#email").value;
+  var zip = $("#zip").value;
+  var password = $("#password").value;
+  var languages = $(".checkbox-inline:checked").value;
+  var newUserSubmit = $("#submit");
+  var loginSubmit = $("#loginSubmit");
+
+
+  $(cmsForm).on("submit", handleLoginSubmit);
+
+  function handleLoginSubmit(event) {
+    event.preventDefault();
+    // Wont submit the post if we are missing a body, title, or author
+    if (!emailLogin.val().trim() || !passwordLogin.val().trim()){
+      return;
+    }
+    // Constructing a newPost object to hand to the database
+    var login = {
+      email: emailLogin
+        .val()
+        .trim(),
+      password: passwordLogin
+        .val()
+        .trim()
+    };
+
+    // If we're updating a post run updatePost to update a post
+    // Otherwise run submitPost to create a whole new post
+    if (updating) {
+      newPost.id = postId;
+      updatePost(newPost);
+    }
+    else {
+      submitPost(newPost);
+    }
+  }
   // Adding an event listener for when the form is submitted
-  $(cmsForm).on("submit", handleFormSubmit);
+  $(newUserSubmit).on("submit", handleNewUserSubmit);
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   var url = window.location.search;
-  var postId;
+  var eventId;
   var authorId;
-  // Sets a flag for whether or not we're updating a post to be false initially
+  // Sets a flag for whether or not we're updating a event to be false initially
   var updating = false;
 
-  // If we have this section in our url, we pull out the post id from the url
-  // In '?post_id=1', postId is 1
-  if (url.indexOf("?post_id=") !== -1) {
-    postId = url.split("=")[1];
-    getPostData(postId, "post");
+  // If we have this section in our url, we pull out the event id from the url
+  // In '?event_id=1', eventId is 1
+  if (url.indexOf("?event_id=") !== -1) {
+    eventId = url.split("=")[1];
+    geteventData(eventId, "event");
   }
   // Otherwise if we have an author_id in our url, preset the author select box to be our Author
   else if (url.indexOf("?author_id=") !== -1) {
@@ -28,10 +67,10 @@ $(document).ready(function() {
   getAuthors();
 
   // A function for handling what happens when the form to create a new post is submitted
-  function handleFormSubmit(event) {
+  function handleNewUserSubmit(event) {
     event.preventDefault();
     // Wont submit the post if we are missing a body, title, or author
-    if (!titleInput.val().trim() || !bodyInput.val().trim() || !authorSelect.val()) {
+    if (!titleInput.val().trim() || !bodyInput.val().trim() || !authorSelect.val()) || {
       return;
     }
     // Constructing a newPost object to hand to the database

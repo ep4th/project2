@@ -49,11 +49,6 @@ body
  font-size:13px;
  margin-left:15px;
 }
-#header form li a
-{
- color:#A9BCF5;
- text-decoration:none;
-}
 #header form input[type="text"]
 {
  margin-top:3px;
@@ -92,4 +87,16 @@ body
     font-weight: bold;
     color: #e5dfc5;
     line-height: 3em;
+}
+.checkbox-inline{
+  margin-left: 3%;
+  margin-right: 3%;
+  color: white;
+}
+#submitLi{
+  list-style-type: none;
+}
+#languageHelp{
+  text-decoration: underline;
+  color: white;
 }
