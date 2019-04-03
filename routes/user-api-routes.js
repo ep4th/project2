@@ -2,11 +2,29 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Find all Authors and return them to the user with res.json
+  
+  app.post("/api/users", function(req, res) {
+    // Create an Author with the data available to us in req.body
+    console.log(req.body);
+    db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
+      console.log("user  being created")
+    });
+  });
+  
+  
+  
+  
+  
+  
+  
   app.get("/api/authors", function(req, res) {
     db.Author.findAll({}).then(function(dbAuthor) {
       res.json(dbAuthor);
     });
   });
+
+  
 
   app.get("/api/authors/:id", function(req, res) {
     // Find one Author with the id in req.params.id and return them to the user with res.json

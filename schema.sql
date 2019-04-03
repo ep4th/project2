@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS codebookdb;
 CREATE DATABASE codebookdb;
 
 
+
+
 -- CREATE TABLE users
 -- (
 --     id int NOT NULL AUTO_INCREMENT,
