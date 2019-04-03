@@ -1,6 +1,6 @@
 <?php
 
-require("phpsqlajax_dbinfo.php");
+require("info.php");
 
 // Start XML file, create parent node
 
@@ -41,6 +41,7 @@ while ($row = @mysql_fetch_assoc($result)){
   $newnode->setAttribute("zip", $row['zip']);
   $newnode->setAttribute("lat", $row['lat']);
   $newnode->setAttribute("lng", $row['lng']);
+  $newnode->setAttribute("languages", $row['languages']);
 }
 
 echo $dom->saveXML();
