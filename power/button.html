@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$.getJSON("generated.json", function(json) {
-    console.log(json); // this will show the info it in firebug console
-});
-</script>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
 </head>
+
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Example queryURL for Giphy API
+    var queryURL = "https://api.myjson.com/bins/1b3h3c";
 
-<button>Get JSON data</button>
-
-<div></div>
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+  </script>
 
 </body>
+
 </html>
