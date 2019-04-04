@@ -1,19 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
+      {{#each Event}}
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Events</h5>
           <p>
-            <strong>ID</strong>: {{Event.id}}</p>
+            <strong>ID</strong>: {{id}}</p>
           <p>
           <p>
-            <strong>Text</strong>: {{Event.eventName}}</p>
+            <strong>Text</strong>: {{eventName}}</p>
           <p>
-            <strong>Description:</strong> {{Event.location}}</p>
+            <strong>Description:</strong> {{location}}</p>
             <a href="/">← Back To Home</a>
         </div>
       </div>
+      {{/each}}
     </div>
   </div>
 </div>

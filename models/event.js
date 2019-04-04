@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define("Event", {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   primaryKey: true
+    // },
     eventName: {
       type: DataTypes.STRING,
       allowNull: false
