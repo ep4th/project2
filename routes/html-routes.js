@@ -87,6 +87,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/", function(req, res){
+    res.render("index");
+  });
+
   app.get("/event", function(req, res) {
     db.Event.findAll({}).then(function(data) {
       console.log("test", data);

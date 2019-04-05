@@ -17,6 +17,7 @@ body {
   margin: 0px auto;
   padding: 0px;
   height: 85px;
+  text-align: center;
 }
 #header li {
   list-style-type: none;

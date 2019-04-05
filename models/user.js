@@ -1,33 +1,26 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   primaryKey: true
-    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       isEmail: {
         msg: "Must be an email with format: foo@bar.com"
       }
     },
     zip: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    password: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    languages: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
+     // languages: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // }
+},{
+    timestamps: false
   });
 
   User.associate = function(models) {
