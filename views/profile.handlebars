@@ -30,7 +30,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Add Event</h5>
+						<h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -38,19 +38,25 @@
 					<div class="modal-body">
 						<form>
 							<div class="form-group row">
-								<label for="inputTitle" class="col-sm-3 col-form-label">Password</label>
+								<label for="user-id" class="col-sm-3 col-form-label">Profile ID</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="user-password">
+									<input type="text" class="form-control" id="user-id" placeholder="3">
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inputStart" class="col-sm-3 col-form-label">Email Address</label>
+								<label for="user-zip" class="col-sm-3 col-form-label">Zip Code</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="user-zip" placeholder="90210">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="user-email" class="col-sm-3 col-form-label">Email Address</label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="user-email" placeholder="CodeIsLife100@gmail.com">
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inputStart" class="col-sm-3 col-form-label">Languages</label>
+								<label for="user-lang" class="col-sm-3 col-form-label">Languages</label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="user-lang" placeholder="Tell me more..">
 								</div>
@@ -58,8 +64,8 @@
 					</div>
 
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
+						<button type="button" class="closeBTN btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="scBTN btn btn-primary">Save changes</button>
 					</div>
 				</div>
 			</div>
@@ -72,43 +78,40 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<h1>MAP</h1>
+				<div class="col-md-12">
+					<!-- Space For Google Map -->
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Space for the Map</li>
+						<li class="list-group-item">Space for the Map</li>
+						<li class="list-group-item">Space for the Map</li>
+					</ul>
+				</div>
 			</div>
 			<div class="col-md-6 col-md-offset-3">
 				<h1>Profiles</h1>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<!-- Space For Google Map -->
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item">Space for the Map</li>
-					<li class="list-group-item">Space for the Map</li>
-					<li class="list-group-item">Space for the Map</li>
-				</ul>
-			</div>
-			{{#each users}}
-			<div class="col-md-6 col-md-offset-3">
-				<div class="card mb-6 col-md-offset-3" style="max-width: 540px;">
-					<div class="row no-gutters">
-						<div class="card-header col-md-12">
-							<h5 class="card-user">{{this.name}}</h5>
-						</div>
-						<div class="col-md-12">
-							<div class="card-body">
-								<ul class="list-group list-group-flush">
-									<li class="list-group-item">Email: {{this.email}}</li>
-									<li class="list-group-item">Location: {{this.zip}}</li>
-									<li class="list-group-item">Known Languages: {{this.languages}}</li>
-								</ul>
-								<p class="card-text"><small class="text-muted">Last Updated: {{this.updatedAt}}</small></p>
+				<div id="profile-list" class="col-md-12">
+					{{#each users}}
+					<div class="card mb-6 col-md-offset-3" style="max-width: 540px;">
+						<div class="row no-gutters">
+							<div class="card-header col-md-12">
+								<h5 class="card-user">{{this.name}}</h5>
+							</div>
+							<div class="col-md-12">
+								<div class="card-body">
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">Location: {{this.zip}}</li>
+										<li class="list-group-item">Known Languages: {{this.languages}}</li>
+										<li class="list-group-item">Email: {{this.email}}</li>
+									</ul>
+									<p class="card-text"><small class="text-muted">Last Updated: {{this.updatedAt}}</small></p>
+								</div>
 							</div>
 						</div>
 					</div>
+					<br>
+					{{/each}}
 				</div>
 			</div>
-			{{/each}}
 		</div>
 	</div>
 	<!-- Custom Script -->
