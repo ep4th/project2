@@ -1,10 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define("Event", {
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   primaryKey: true
-    // },
     eventName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -21,6 +16,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
+  },{
+      timestamps: false
   });
 
   Event.associate = function(models) {
