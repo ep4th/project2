@@ -4,12 +4,12 @@ $(document).ready(function () {
     var zipInput = $("#zip");
     var languageInput = $("#language");
 
-    $(document).on("submit", "#user-create", handleUserFormSubmit);
+    $("#user-create").on("click", handleUserFormSubmit);
 
     function handleUserFormSubmit(event) {
-        event.preventDefault();
 
         if (!nameInput.val().trim().trim() || !emailInput.val().trim().trim() || !zipInput.val().trim().trim() || !languageInput.val().trim().trim()) {
+            event.preventDefault();       
             alert("All fields must be filled out.");
             return;
         }
