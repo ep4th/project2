@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS codebookdb;
+CREATE DATABASE codebookdb;

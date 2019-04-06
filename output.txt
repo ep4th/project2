@@ -1,0 +1,9 @@
+Executing (default): DROP TABLE IF EXISTS `Events`;
+Executing (default): DROP TABLE IF EXISTS `Users`;
+Executing (default): DROP TABLE IF EXISTS `Users`;
+Executing (default): CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER NOT NULL , `name` VARCHAR(255) NOT NULL, `email` VARCHAR(255) NOT NULL, `zip` INTEGER NOT NULL, `password` VARCHAR(255) NOT NULL, `languages` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `Users` FROM `codebookdb`
+Executing (default): DROP TABLE IF EXISTS `Events`;
+Executing (default): CREATE TABLE IF NOT EXISTS `Events` (`id` INTEGER NOT NULL , `eventName` VARCHAR(255) NOT NULL, `location` VARCHAR(255) NOT NULL, `start_at` VARCHAR(255) NOT NULL, `attendance` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `UserId` INTEGER NOT NULL, PRIMARY KEY (`id`), FOREIGN KEY (`UserId`) REFERENCES `Users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `Events` FROM `codebookdb`
+App listening on PORT 8080
