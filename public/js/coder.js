@@ -1,23 +1,15 @@
-$(document).ready(function () {
-    var queryURL =  "https://api.myjson.com/bins/1b3h3c";
-    selectors = {
-        userZipCode: '#zip',
-      };
+    jQuery.ajax({
+        type: "GET",
+        url: "https://api.myjson.com/bins/1b3h3c",
+        success: function(data)
+        {
+            console.log(data);
     
-    
-    
-    $(selectors.formSubmitButton).on('click', function (event) {
-        event.preventDefault();
-        // Clear current page results
-        clearResults();
-        // Get user input
-        // var name = $(selectors.userName).val().trim();
-    var zip = $(selectors.userZipCode).val().trim();
-    var queryURL =  "https://api.myjson.com/bins/1b3h3c";
-    if (!patterns.zipInput.test(zip)) {
-        $(selectors.modalPara).text('Zip code must be 5 digits');
-        $(selectors.inputModal).modal('open');
-        return;
-      }
-      queryURL = queryURL + '&id=' + id + '&name'+ name + '&zip=' + zip;
-    })
+            jQuery.each(data.results, function(i, val) {
+                // here you can do your magic
+                $("#email").append(document.createTextNode(val.email));
+                $("#zip").append(document.createTextNode(val.zip));
+                $("#langauges").append(document.createTextNode(val.knownLangauges));
+            });
+        }
+    });
