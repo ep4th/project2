@@ -5,10 +5,5 @@ function initMap() {
       zoom: 8
       });
       infowindow = new google.maps.InfoWindow({
-      content: document.getElementById('form')
-      });
-
-      messagewindow = new google.maps.InfoWindow({
-      content: document.getElementById('message')
-      google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map, marker);
+        content: document.getElementById('form')
+        });
