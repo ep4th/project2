@@ -16,25 +16,23 @@
 
     <div id="main" class="row">
         <div class="col-md-5">
-            <form id="user-create" role="form">
+            <form role="form">
 
-                    <p id="title">SIGN UP</p>
-                    <div class="form-group">
-                        <input type="text" id="name" class="form-control input-lg" placeholder="Full Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="email" class="form-control input-lg"
-                            placeholder="Email Address">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="zip" class="form-control input-lg"
-                            placeholder="Zip Code: 91325">
-                    </div>
-                     <div class="form-group">
-                        <input type="text" id="language" class="form-control input-lg"
-                            placeholder="JS, C#, SASS, PHP, Python, etc..">
-                    </div>
-                    {{!-- <div class="form-group">
+                <p id="title">SIGN UP</p>
+                <div class="form-group">
+                    <input type="text" id="name" class="form-control input-lg" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="email" class="form-control input-lg" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="zip" class="form-control input-lg" placeholder="Zip Code: 91325">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="language" class="form-control input-lg"
+                        placeholder="JS, C#, SASS, PHP, Python, etc..">
+                </div>
+                {{!-- <div class="form-group">
                         <small id="languageHelp">List of known languages</small>
                         <hr>
                         <label class="checkbox-inline"><input type="checkbox" value="JS"> JS</label>
@@ -43,9 +41,11 @@
                         <label class="checkbox-inline"><input type="checkbox" value="PHP"> PHP</label>
                         <label class="checkbox-inline"><input type="checkbox" value="Python"> Python</label>
                     </div> --}}
-                    <div>
-                        <li id="submitLi"><input id="submit" type="submit" name="login" value="Submit"></li>
+                <div>
+                    <div id="user-create" class="form-control mr-sm-2">
+                        <a class="btn btn-default" href="/profile">Events</a>
                     </div>
+                </div>
 
             </form>
         </div>

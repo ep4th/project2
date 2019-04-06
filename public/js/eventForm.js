@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     function handleEventFormSubmit(event) {
 
-        if (title == null || startDate == null || description == null || startTime == null || endTime == null || location == null ) {
+        if (title.val().trim() == null || startDate.val().trim() == null || description.val().trim() == null || startTime.val().trim() == null || endTime.val().trim() == null || location.val().trim() == null || title.val().trim() == '' || startDate.val().trim() == '' || description.val().trim() == '' || startTime.val().trim() == '' || endTime.val().trim() == '' || location.val().trim() == '' ) {
             alert("All fields must be filled out.");
             return;
         }
