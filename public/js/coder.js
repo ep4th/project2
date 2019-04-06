@@ -7,9 +7,11 @@
     
             jQuery.each(data.results, function(i, val) {
                 // here you can do your magic
-                $("#email").append(document.createTextNode(val.email));
+                $("#name").append(document.createTextNode(val.name));
                 $("#zip").append(document.createTextNode(val.zip));
+                $("#email").append(document.createTextNode(val.email));
                 $("#langauges").append(document.createTextNode(val.knownLangauges));
+ 
             });
         }
     });
