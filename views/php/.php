@@ -1,6 +1,6 @@
 <?php
 
-require("info.php");
+
 
 // Start XML file, create parent node
 
@@ -10,7 +10,7 @@ $parnode = $dom->appendChild($node);
 
 // Opens a connection to a MySQL server
 
-$connection=mysql_connect ('localhost', $username, $password);
+$connection=mysql_connect ('localhost', 'root', 'Belbeach66!');
 if (!$connection) {  die('Not connected : ' . mysql_error());}
 
 // Set the active MySQL database
