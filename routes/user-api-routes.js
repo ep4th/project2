@@ -1,33 +1,30 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Find all Authors and return them to the user with res.json
-  
+
   app.post("/api/users", function(req, res) {
-    // Create an Author with the data available to us in req.body
     console.log(req.body);
     db.User.create(req.body).then(function(dbUser) {
       res.json(dbUser);
-      console.log("user  being created")
+      console.log("user being created");
     });
   });
-  
-  
-  
-  
-  
-  
-  
+
+  app.post("/events", function(req, res) {
+    console.log(req.body);
+    db.Event.create(req.body).then(function(dbEvent) {
+      res.json(dbEvent);
+      console.log("event being created");
+    });
+  });
+
   app.get("/api/authors", function(req, res) {
     db.Author.findAll({}).then(function(dbAuthor) {
       res.json(dbAuthor);
     });
   });
 
-  
-
   app.get("/api/authors/:id", function(req, res) {
-    // Find one Author with the id in req.params.id and return them to the user with res.json
     db.Author.findOne({
       where: {
         id: req.params.id
@@ -38,7 +35,6 @@ module.exports = function(app) {
   });
 
   app.post("/api/authors", function(req, res) {
-    // Create an Author with the data available to us in req.body
     console.log(req.body);
     db.Author.create(req.body).then(function(dbAuthor) {
       res.json(dbAuthor);
@@ -46,7 +42,6 @@ module.exports = function(app) {
   });
 
   app.delete("/api/authors/:id", function(req, res) {
-    // Delete the Author with the id available to us in req.params.id
     db.Author.destroy({
       where: {
         id: req.params.id
@@ -56,15 +51,12 @@ module.exports = function(app) {
     });
   });
   app.put("/api/user", function(req, res) {
-    db.User.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
+    db.User.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
-
 };
