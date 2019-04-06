@@ -92,7 +92,7 @@ module.exports = function(app) {
   });
 
   app.get("/event", function(req, res) {
-    db.Event.findAll({}).then(function(data) {
+    db.Event.findAll({raw: true}).then(function(data) {
       console.log("test", data);
       res.render("events", { Event: data });
     });
