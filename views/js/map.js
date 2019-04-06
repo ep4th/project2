@@ -9,7 +9,32 @@ var customLabel = {
         center: {lat: 34.0522, lng: -118.2437},
         zoom: 8
         });
-    var infoWindow = new google.maps.InfoWindow;
+        infowindow = new google.maps.InfoWindow({
+        content: document.getElementById('form')
+        });
+
+        messagewindow = new google.maps.InfoWindow({
+        content: document.getElementById('message')
+        google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+    function saveData() {
+      var name = escape(document.getElementById('name').value);
+      var address = escape(document.getElementById('address').value);
+      var type = document.getElementById('type').value;
+      var latlng = marker.getPosition();
+      var url = 'phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
+                '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
+
+      downloadUrl(url, function(data, responseCode) {
+
+        if (responseCode == 200 && data.length <= 1) {
+          infowindow.close();
+          messagewindow.open(map, marker);
+        }
+      });
+    }
+
 
       // Change this depending on the name of your PHP or XML file
       downloadUrl('https://github.com/ep4th/project2/blob/irene/power/.php', function(data) {
