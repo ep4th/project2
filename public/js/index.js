@@ -1,43 +1,35 @@
 $(document).ready(function () {
-    // Getting references to the name input and author container, as well as the table body
     var nameInput = $("#name");
     var emailInput = $("#email");
     var zipInput = $("#zip");
     var languageInput = $("#language");
-    // Adding event listeners to the form to create a new object, and the button to delete
-    // an User
+
     $(document).on("submit", "#user-create", handleUserFormSubmit);
 
-
-    // A function to handle what happens when the form is submitted to create a new User
     function handleUserFormSubmit(event) {
         event.preventDefault();
-        // Don't do anything if the name fields hasn't been filled out
-        if (!nameInput.val().trim().trim()) {
-            console.log("EHHHHH");
+
+        if (!nameInput.val().trim().trim() || !emailInput.val().trim().trim() || !zipInput.val().trim().trim()) {
+            alert("All fields must be filled out.");
             return;
         }
-        // Calling the createUser function and passing in the value of the name input
+
         createUser(
             {
-                name: nameInput
+            name: nameInput
+                    .val()
+                    .trim(), 
+            email: emailInput
+                    .val()
+                    .trim(),
+            zip: zipInput
                     .val()
                     .trim()
-            }, {
-                email: emailInput
-                    .val()
-                    .trim()
-            }, {
-                zip: zipInput
-                    .val()
-                    .trim()
-            }
-            // , {
-            //     languages: languageInput
+            //         ,
+            // languages: languageInput
             //         .val()
             //         .trim()
-            // }
-
+            }
         );
     }
 
