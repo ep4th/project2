@@ -7,3 +7,4 @@ function initMap() {
       infowindow = new google.maps.InfoWindow({
         content: document.getElementById('form')
         });
+      }
