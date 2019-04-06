@@ -14,22 +14,22 @@ module.exports = function(sequelize, DataTypes) {
     zip: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+     languages: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
-     // languages: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // }
 },{
     timestamps: false
   });
 
-  User.associate = function(models) {
-    // Associating user with Posts
-    // When an user is deleted, also delete any associated Posts
-    User.hasMany(models.Event, {
-      onDelete: "cascade"
-    });
-  };
+  // User.associate = function(models) {
+  //   // Associating user with Posts
+  //   // When an user is deleted, also delete any associated Posts
+  //   User.hasMany(models.Event, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
   return User;
 };

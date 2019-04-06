@@ -90,3 +90,7 @@ body {
   text-decoration: underline;
   color: white;
 }
+#profile-list{
+  height: 500px;
+  overflow-y: scroll;
+}

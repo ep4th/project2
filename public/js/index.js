@@ -9,7 +9,7 @@ $(document).ready(function () {
     function handleUserFormSubmit(event) {
         event.preventDefault();
 
-        if (!nameInput.val().trim().trim() || !emailInput.val().trim().trim() || !zipInput.val().trim().trim()) {
+        if (!nameInput.val().trim().trim() || !emailInput.val().trim().trim() || !zipInput.val().trim().trim() || !languageInput.val().trim().trim()) {
             alert("All fields must be filled out.");
             return;
         }
@@ -24,11 +24,10 @@ $(document).ready(function () {
                     .trim(),
             zip: zipInput
                     .val()
+                    .trim(),
+            languages: languageInput
+                    .val()
                     .trim()
-            //         ,
-            // languages: languageInput
-            //         .val()
-            //         .trim()
             }
         );
     }

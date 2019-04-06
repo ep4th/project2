@@ -1,19 +1,16 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Find all Authors and return them to the user with res.json
 
   app.post("/api/users", function(req, res) {
-    // Create an Code Profile with the data available to us in req.body
     console.log(req.body);
     db.User.create(req.body).then(function(dbUser) {
       res.json(dbUser);
-      console.log("user  being created");
+      console.log("user being created");
     });
   });
 
-  app.post("/event", function(req, res) {
-    // Create an Code Profile with the data available to us in req.body
+  app.post("/events", function(req, res) {
     console.log(req.body);
     db.Event.create(req.body).then(function(dbEvent) {
       res.json(dbEvent);
@@ -28,7 +25,6 @@ module.exports = function(app) {
   });
 
   app.get("/api/authors/:id", function(req, res) {
-    // Find one Author with the id in req.params.id and return them to the user with res.json
     db.Author.findOne({
       where: {
         id: req.params.id
@@ -39,7 +35,6 @@ module.exports = function(app) {
   });
 
   app.post("/api/authors", function(req, res) {
-    // Create an Author with the data available to us in req.body
     console.log(req.body);
     db.Author.create(req.body).then(function(dbAuthor) {
       res.json(dbAuthor);
@@ -47,7 +42,6 @@ module.exports = function(app) {
   });
 
   app.delete("/api/authors/:id", function(req, res) {
-    // Delete the Author with the id available to us in req.params.id
     db.Author.destroy({
       where: {
         id: req.params.id
