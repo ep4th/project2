@@ -7,6 +7,7 @@ $(document).ready(function () {
     $("#user-create").on("click", handleUserFormSubmit);
 
     function handleUserFormSubmit(event) {
+        event.preventDefault();
 
         if (!nameInput.val().trim().trim() || !emailInput.val().trim().trim() || !zipInput.val().trim().trim() || !languageInput.val().trim().trim()) {
             event.preventDefault();       
@@ -35,6 +36,13 @@ $(document).ready(function () {
     // A function for creating an User
     function createUser(userData) {
         $.post("/api/users", userData)
+        setTimeout(function update() {
+            nextPage();
+        }, 500);
+    }
+
+    function nextPage(){
+        window.location.replace("/profile");
     }
 
 });
