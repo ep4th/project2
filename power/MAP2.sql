@@ -7,4 +7,4 @@ CREATE TABLE `map` (
 );
 INSERT INTO `map` (`name`)
 VALUES ('["id", "name", "email","zip","latitude","longitude","knownLangauges"]');
-SELECT * FROM `generated.json`
+SELECT * FROM `.csv`

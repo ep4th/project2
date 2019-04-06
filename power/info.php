@@ -1,5 +1,5 @@
 <?php
-$username="power";
+$username="root";
 $password="Belbeach66!";
-$database="power-map";
+$database="map";
 ?>
